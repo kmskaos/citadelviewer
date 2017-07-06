@@ -1,0 +1,26 @@
+.container {
+    padding-top: 20px;  
+}
+
+body{
+   background-color:#333;
+   color:whitesmoke;
+}
+section {
+    padding-top: 40px !important;  
+}
+
+h1 {
+    font-weight: 200;
+    font-size: 28px;
+}
+
+.center{
+  text-align:center !important;
+  
+}
+
+.header{
+  font-weight:bold;
+  
+}
