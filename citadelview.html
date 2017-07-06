@@ -1,64 +1,45 @@
 <html lang="en" ng-app="CitadelFueler">
-
-<head>
- <title>Citadel Fueler</title>
-
-     <link href="bootstrap.css" rel="stylesheet">
-
+  <head>
+    <title>Citadel Fueler</title>
+    <link href="bootstrap.css" rel="stylesheet">
     <link href="sb-admin-2.css" rel="stylesheet">
- <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" rel="stylesheet"> -->
- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
- <script src="controller.js"></script>
- 
-  <style>
-    body {
-        background-image: url("background.jpg");
-    }
-  </style>
-
-</head>
-
-<body ng-controller="MainController as main">
-
-    <div class="col-md-3"></div>
-
-    <div class="col-md-6">
-      <div class="row col-md-12">
-        <a><h2 align="center"><img src="https://imageserver.eveonline.com/Character/{{eveData.character_id}}_64.jpg"> Welcome {{eveData.character.name}} </h2></a>
-      </div>
-
-      <div class="col-lg-12 col-md-12 col-xs-12" ng-repeat="structure in eveData.character.corporation.structures">
-        <div class="panel panel-test">
-          <div class="panel-heading">
-            <h4 align="center">
-              <img src="https://imageserver.eveonline.com/Alliance/{{eveData.character.alliance_id}}_64.png">
-              <img src="https://imageserver.eveonline.com/Corporation/{{eveData.character.corporation_id}}_64.png">
-              <img src="https://image.eveonline.com/Render/{{structure.type_id}}_64.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="controller.js"></script>
+    <style>
+      body {background-image: url("background.jpg");}
+    </style>
+  </head>
+  <body ng-controller="MainController as main">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="row col-md-12">
+          <a><h2 align="center"><img src="https://imageserver.eveonline.com/Character/{{eveData.character_id}}_64.jpg"> Welcome {{eveData.character.name}} </h2></a>
+        </div>
+        <div class="col-lg-12 col-md-12 col-xs-12" ng-repeat="structure in eveData.character.corporation.structures">
+          <div class="panel panel-test">
+            <div class="panel-heading">
+              <h4 align="center">
+                <img src="https://imageserver.eveonline.com/Alliance/{{eveData.character.alliance_id}}_64.png">
+                <img src="https://imageserver.eveonline.com/Corporation/{{eveData.character.corporation_id}}_64.png">
+                <img src="https://image.eveonline.com/Render/{{structure.type_id}}_64.png">
                 {{structure.name}}
-            </h4>
+              </h4>
+            </div>
+            <div class=" panel-footer-test col-lg-12 col-md-12 col-xs-12">
+              <div ng-repeat="service in structure.services">                
+                <h6 align="center">{{service.name}} | {{service.state}}</h6>
+              </div>
+            </div>
+            <div class="panel-footer-test">
+              <div class="col-lg-12 col-md-12 col-xs-12">
+                <h4 align="center">Fuel Runs Out : {{structure.runsout}} Days</h4>
+              </div>
+              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+              <div class="clearfix"></div>
+            </div>
           </div>
-          <div class=" panel-footer-test col-lg-12 col-md-12 col-xs-12">
-          <div ng-repeat="service in structure.services">
-            
-            <h6 align="center">
-              {{service.name}} | {{service.state}}
-            </h6>
-          </div>
-          </div>
-
-          <div class="panel-footer-test">
-          <div class="col-lg-12 col-md-12 col-xs-12">
-          <h4 align="center">Fuel Runs Out : {{structure.fuel_expires}}</h4>
-          </div>
-
-          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-          <div class="clearfix"></div>
         </div>
-        </div>
-        
-  </div>
-
-    <div class="col-md-3"></div>
-</body>
-
+      </div>
+      <div class="col-md-3"></div>
+  </body>
 </html>
